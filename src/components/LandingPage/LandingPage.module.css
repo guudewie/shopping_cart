@@ -12,6 +12,14 @@
     gap: 2rem;
 }
 
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
 .title {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
@@ -20,7 +28,7 @@
 
 .subTitle {
     font-family: monospace;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .button {

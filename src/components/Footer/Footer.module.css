@@ -1,0 +1,55 @@
+
+.footerMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    padding: 3rem 6rem;
+}
+
+.footerTop,
+.footerBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+}
+
+
+.socialMediaContainer,
+.topIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.socialMediaContainer {
+    gap: 4rem;
+}
+
+.topLogo {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+
+.topText {
+    font-size: 1.1rem;
+}
+
+.linksTitle {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    margin-bottom: .4rem;
+    border-bottom: 1px solid black;
+}
+
+.link {
+    font-family: monospace;
+}

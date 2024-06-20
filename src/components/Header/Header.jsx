@@ -8,9 +8,9 @@ function Header() {
     <div className={style.mainContainer}>
       <div className={style.logo}>THE SHOP</div>
       <nav className={style.navContainer}>
+        <a>Mens</a>
+        <a>Womens</a>
         <a>Electronics</a>
-        <a>Clothing</a>
-        <a>Appliences</a>
       </nav>
       <div className={style.iconsContainer}>
         <Badge
