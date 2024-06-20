@@ -1,0 +1,33 @@
+.container {
+    height: calc(100vh - 5rem);
+    background-color: black;
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.title {
+    font-size: 4rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.subTitle,
+.button {
+    font-size: 1rem;
+    font-family: monospace;
+}
+
+.button {
+    padding: 1rem 2rem;
+    border: 2px solid white;
+}
+
+.button:hover {
+    border: 2px solid white;
+    color: black;
+    background-color: white;
+}

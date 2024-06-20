@@ -3,7 +3,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from "@mui/material/Badge";
 import PersonIcon from "@mui/icons-material/Person";
 
-function Header() {
+function Header({ toggleDrawer }) {
   return (
     <div className={style.mainContainer}>
       <div className={style.logo}>THE SHOP</div>
@@ -12,7 +12,7 @@ function Header() {
         <a>Womens</a>
         <a>Electronics</a>
       </nav>
-      <div className={style.iconsContainer}>
+      <div className={style.iconsContainer} onClick={toggleDrawer()}>
         <Badge
           classes={{ badge: style.badge }}
           badgeContent={"5"}

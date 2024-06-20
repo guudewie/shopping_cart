@@ -29,6 +29,10 @@
     gap: 2rem;
 }
 
+.topIcon {
+    cursor: pointer;
+}
+
 .socialMediaContainer {
     gap: 4rem;
 }
@@ -52,4 +56,5 @@
 
 .link {
     font-family: monospace;
+    cursor: pointer;
 }
