@@ -1,19 +1,27 @@
 import style from "./Header.module.css";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import Badge from "@mui/material/Badge";
+import PersonIcon from "@mui/icons-material/Person";
 
 function Header() {
   return (
     <div className={style.mainContainer}>
-      <div className={style.logo}></div>
+      <div className={style.logo}>THE SHOP</div>
       <nav className={style.navContainer}>
         <a>Electronics</a>
         <a>Clothing</a>
         <a>Appliences</a>
       </nav>
       <div className={style.iconsContainer}>
-        <ShoppingCartOutlinedIcon />
-        <ShoppingCartOutlinedIcon />
-        <ShoppingCartOutlinedIcon />
+        <Badge
+          classes={{ badge: style.badge }}
+          badgeContent={"5"}
+          color="primary"
+          max={99}
+        >
+          <ShoppingCartOutlinedIcon />
+        </Badge>
+        <PersonIcon></PersonIcon>
       </div>
     </div>
   );

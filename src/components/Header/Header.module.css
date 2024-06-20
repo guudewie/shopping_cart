@@ -4,10 +4,7 @@
     align-items: center;
 
     height: 5rem;
-    padding: 0 2rem;
-    border: 1px solid red;
-    
-    background-color: aquamarine;
+    padding: 0 2rem;    
 }
 
 .navContainer,
@@ -20,4 +17,13 @@
 .navContainer {
     gap: 3rem;
     font-family: monospace;
+}
+
+.badge {
+    border: 2px solid white;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.3rem;
 }
