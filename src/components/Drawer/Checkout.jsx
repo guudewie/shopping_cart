@@ -2,6 +2,7 @@ import Drawer from "@mui/material/Drawer";
 import style from "./Checkout.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import CheckoutItem from "./CheckoutItem";
+import { Button } from "@mui/material";
 
 const Checkout = ({ open, toggleDrawer }) => {
   return (
@@ -46,7 +47,20 @@ const Checkout = ({ open, toggleDrawer }) => {
               <div>Calculated at Checkout</div>
             </div>
           </div>
-          <div className={style.checkoutBtn}>CHECKOUT</div>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            fullWidth
+            className={style.addToCartButton}
+            sx={{
+              fontFamily: "monospace",
+              fontSize: "1rem",
+              borderRadius: "2rem",
+            }}
+          >
+            Add to Cart
+          </Button>
         </div>
       </div>
     </Drawer>

@@ -1,0 +1,65 @@
+.productPage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem 2rem;
+	height: 100%;
+}
+
+.productImage {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+    width: 100%;
+}
+
+.productImage img {
+	height: 100%;
+}
+
+.productDetails {
+	flex: 1;
+	margin-left: 1rem;
+}
+
+.productTitle {
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+.productSubtitle {
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	font-family: monospace;
+}
+
+.productPrice {
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	font-family: monospace;
+}
+
+.addToCartButton {
+	margin-top: 1rem;
+	font-family: monospace;
+}
+
+.shippingInfo {
+	margin-top: 1rem;
+	font-family: monospace;
+}
+
+.shippingInfoItem {
+	margin-bottom: 0.5rem;
+	font-family: monospace;
+	font-size: .8rem;
+}
+
+.sizeSelect {
+    margin-top: 9rem;
+    margin-bottom: 1.4rem;
+	width: 50%;
+}

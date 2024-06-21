@@ -6,6 +6,7 @@ import Construction from "./components/Error/Construction";
 import Checkout from "./components/Drawer/Checkout";
 import { useState } from "react";
 import Shop from "./components/Products/Shop";
+import SingleProduct from "./components/SingleProduct/SingleProduct";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,8 @@ function App() {
       <Header toggleDrawer={() => toggleDrawer} />
       {false && <LandingPage></LandingPage>}
       <Checkout open={open} toggleDrawer={() => toggleDrawer}></Checkout>
-      <Shop></Shop>
+      {false && <Shop></Shop>}
+      {true && <SingleProduct></SingleProduct>}
       {true && <Footer></Footer>}
     </>
   );
