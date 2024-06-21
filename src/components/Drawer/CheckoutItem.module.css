@@ -1,0 +1,61 @@
+.mainContainer {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.left {
+    height: 100%;
+}
+
+.picture {
+    width: 4rem;
+    height: 100%;
+}
+
+.title {
+    font-family: monospace;
+    font-size: .8rem;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    
+
+    padding: .2rem .9rem;
+    font-size: 1rem;
+    font-family: monospace;
+    height: 1.5rem;
+    width: 4rem;
+    border-radius: 1rem;
+    border: 1.5px solid blue;
+    text-align: center;
+    margin-left: .2rem;
+}
+
+.price {
+    align-self: flex-end;
+    justify-self: flex-end;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-bottom: .25rem;
+}
+
+.divider {
+    width: 90%;
+    opacity: .2;
+}
