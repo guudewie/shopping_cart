@@ -7,6 +7,7 @@ import Checkout from "./components/Drawer/Checkout";
 import { useState } from "react";
 import Shop from "./components/Products/Shop";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
+import PromotionOne from "./components/Promotion/PromotionOne";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -19,8 +20,9 @@ function App() {
       <Header toggleDrawer={() => toggleDrawer} />
       {false && <LandingPage></LandingPage>}
       <Checkout open={open} toggleDrawer={() => toggleDrawer}></Checkout>
-      {false && <Shop></Shop>}
-      {true && <SingleProduct></SingleProduct>}
+      {true && <Shop></Shop>}
+      {false && <SingleProduct></SingleProduct>}
+      {true && <PromotionOne></PromotionOne>}
       {true && <Footer></Footer>}
     </>
   );
