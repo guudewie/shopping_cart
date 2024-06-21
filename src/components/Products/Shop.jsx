@@ -51,17 +51,60 @@ const Shop = () => {
         </Box>
       </div>
       <div className={style.itemContainer}>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
+        <Product
+          key={1}
+          title={"ralph lauren"}
+          subTitle={"awesome sweater pro mesh"}
+          price={"20"}
+          url={
+            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
+          }
+        ></Product>
+        <Product
+          key={2}
+          title={"ralph lauren"}
+          subTitle={"awesome sweater pro mesh"}
+          price={"20"}
+          url={
+            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
+          }
+        ></Product>
+        <Product
+          key={3}
+          title={"ralph lauren"}
+          subTitle={"awesome sweater pro mesh"}
+          price={"20"}
+          url={
+            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
+          }
+        ></Product>
+        <Product
+          key={4}
+          title={"ralph lauren"}
+          subTitle={"awesome sweater pro mesh"}
+          price={"20"}
+          url={
+            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
+          }
+        ></Product>
+        <Product
+          key={5}
+          title={"ralph lauren"}
+          subTitle={"awesome sweater pro mesh"}
+          price={"20"}
+          url={
+            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
+          }
+        ></Product>
+        <Product
+          key={6}
+          title={"ralph lauren"}
+          subTitle={"awesome sweater pro mesh"}
+          price={"20"}
+          url={
+            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
+          }
+        ></Product>
       </div>
     </div>
   );
