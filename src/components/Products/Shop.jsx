@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 import { useState } from "react";
 
 const Shop = () => {
-  const [orderBy, setOrderBy] = useState("recommended");
+  const [orderBy, setOrderBy] = useState("Recommended");
 
   const handleChange = (e) => {
     setOrderBy(e.target.value);
@@ -37,13 +37,13 @@ const Shop = () => {
               onChange={handleChange}
               sx={monospaceStyle}
             >
-              <MenuItem value={10} sx={monospaceStyle}>
+              <MenuItem value={"Recommended"} sx={monospaceStyle}>
                 Recommended
               </MenuItem>
-              <MenuItem value={20} sx={monospaceStyle}>
+              <MenuItem value={"Price Lowest to Highest"} sx={monospaceStyle}>
                 Price Lowest to Highest
               </MenuItem>
-              <MenuItem value={30} sx={monospaceStyle}>
+              <MenuItem value={"Price Highest to Lowest"} sx={monospaceStyle}>
                 Price Highest to Lowest
               </MenuItem>
             </Select>

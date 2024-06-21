@@ -4,6 +4,7 @@
     align-items: center;
     gap: .4rem;
     width: 100%;
+    cursor: pointer;
 }
 
 .image {

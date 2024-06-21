@@ -2,12 +2,10 @@ import style from "./Product.module.css";
 
 const Product = ({ url, title, subTitle, price }) => {
   const formatCurrency = (price) => {
-    // Format price as Euro currency
-    const formatter = new Intl.NumberFormat("en-US", {
+    const formatter = new Intl.NumberFormat("de-DE", {
       style: "currency",
       currency: "EUR",
     });
-
     return formatter.format(price);
   };
 
