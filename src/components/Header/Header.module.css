@@ -28,13 +28,13 @@
     font-size: 1.3rem;
 }
 
-a > div:hover,
+nav > a > div:hover,
 .underlined {
     transition: all .5s ease;
     position: relative;
 }
 
-a > div:hover::after,
+nav > a > div:hover::after,
 .underlined::after {
     content: '';
     position: absolute;

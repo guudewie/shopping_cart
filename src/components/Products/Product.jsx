@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./Product.module.css";
 
 const Product = ({ url, title, subTitle, price }) => {

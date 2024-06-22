@@ -5,37 +5,49 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Shop = () => {
   const [orderBy, setOrderBy] = useState("Recommended");
   const [products, loading, error] = useOutletContext();
-  const Location = useLocation().pathname;
+  const location = useLocation().pathname;
 
-  if (error) console.log(error);
+  const sortedProducts = useMemo(() => {
+    const filterProducts = () => {
+      switch (location) {
+        case "/shop/mens":
+          return products.filter(
+            (product) => product.category == "men's clothing"
+          );
+        case "/shop/womens":
+          return products.filter(
+            (product) =>
+              product.category == "women's clothing" ||
+              product.category == "jewelery"
+          );
+        case "/shop/electronics":
+          return products.filter(
+            (product) => product.category == "electronics"
+          );
+        default:
+          return products;
+      }
+    };
 
-  console.log(products);
+    let filteredProducts = filterProducts();
+    console.log("fp: ", filterProducts);
 
-  const filterProducts = () => {
-    if (Location == "/shop/mens") {
-      return products.filter((product) => {
-        return product.category == "men's clothing";
-      });
-    } else if (Location == "/shop/womens") {
-      return products.filter((product) => {
-        return (
-          product.category == "women's clothing" ||
-          product.category == "jewelery"
-        );
-      });
-    } else {
-      return products.filter((product) => {
-        return product.category == "electronics";
-      });
+    switch (orderBy) {
+      case "Price Lowest to Highest":
+        return filteredProducts.sort((a, b) => a.price - b.price);
+      case "Price Highest to Lowest":
+        return filteredProducts.sort((a, b) => b.price - a.price);
+      case "Recommended":
+        return filteredProducts;
     }
-  };
+  }, [location, orderBy, products]);
 
   const handleChange = (e) => {
     setOrderBy(e.target.value);
@@ -49,7 +61,7 @@ const Shop = () => {
   return (
     <div className={style.mainContainer}>
       <div className={style.shopHeader}>
-        <div className={style.itemCount}>{products.length} Items</div>
+        <div className={style.itemCount}>{sortedProducts.length} Items</div>
         <Box className={style.sortContainer}>
           <FormControl fullWidth size="small">
             <InputLabel id="orderBySelect" sx={monospaceStyle}>
@@ -57,7 +69,6 @@ const Shop = () => {
             </InputLabel>
             <Select
               labelId="orderBySelect"
-              id="demo-simple-select"
               value={orderBy}
               label="Sort by"
               type="text"
@@ -80,8 +91,8 @@ const Shop = () => {
       <div className={style.itemContainer}>
         {loading
           ? "LOADING"
-          : filterProducts().length > 0 &&
-            filterProducts().map((p) => {
+          : sortedProducts.length > 0 &&
+            sortedProducts.map((p) => {
               return (
                 <Product
                   key={p.id}
