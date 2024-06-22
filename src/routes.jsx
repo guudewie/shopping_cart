@@ -4,6 +4,8 @@ import Construction from "./components/Error/Construction";
 import Shop from "./components/Products/Shop";
 import LandingPage from "./components/LandingPage/LandingPage";
 import PromotionOne from "./components/Promotion/PromotionOne";
+import PromotionTwo from "./components/Promotion/PromotionTwo";
+import SingleProduct from "./components/SingleProduct/SingleProduct";
 
 const routes = [
   {
@@ -25,32 +27,30 @@ const routes = [
         children: [
           {
             path: "mens",
-            element: (
-              <>
-                <Shop />
-                <PromotionOne />
-              </>
-            ),
+            element: <></>,
           },
           {
             path: "womens",
-            element: (
-              <>
-                <Shop />
-                <PromotionOne />
-              </>
-            ),
+            element: <></>,
           },
           {
             path: "electronics",
-            element: (
-              <>
-                <Shop />
-                <PromotionOne />
-              </>
-            ),
+            element: <></>,
+          },
+          {
+            path: "all",
+            element: <></>,
           },
         ],
+      },
+      {
+        path: "product/:id",
+        element: (
+          <>
+            <SingleProduct />
+            <PromotionTwo />
+          </>
+        ),
       },
       {
         path: "construction",

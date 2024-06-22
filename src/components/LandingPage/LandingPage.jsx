@@ -9,7 +9,7 @@ const LandingPage = () => {
           <div className={style.title}>Summer Sale</div>
           <div className={style.subTitle}>Shop exclusive styles now</div>
         </div>
-        <Link to="/shop">
+        <Link to="/shop/all">
           <div className={style.button}>Shop now</div>
         </Link>
       </div>

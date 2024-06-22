@@ -17,17 +17,17 @@ const Shop = () => {
   const sortedProducts = useMemo(() => {
     const filterProducts = () => {
       switch (location) {
-        case "/shop/mens":
+        case "/mens":
           return products.filter(
             (product) => product.category == "men's clothing"
           );
-        case "/shop/womens":
+        case "/womens":
           return products.filter(
             (product) =>
               product.category == "women's clothing" ||
               product.category == "jewelery"
           );
-        case "/shop/electronics":
+        case "/electronics":
           return products.filter(
             (product) => product.category == "electronics"
           );
@@ -37,7 +37,6 @@ const Shop = () => {
     };
 
     let filteredProducts = filterProducts();
-    console.log("fp: ", filterProducts);
 
     switch (orderBy) {
       case "Price Lowest to Highest":

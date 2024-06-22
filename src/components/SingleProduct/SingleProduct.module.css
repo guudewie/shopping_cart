@@ -1,65 +1,78 @@
 .productPage {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 3rem;
+	padding: 3rem 10rem;
+	max-height: 100%;
+  
+  }
+
+  @media (max-width: 768px) {
+	.productPage {
+	  padding: 2rem;
+	  grid-template-columns: 1fr;
+	}
+  }
+  
+  .productImage {
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	justify-content: center;
-	height: 100%;
-    padding: 3rem 20rem;
-}
-
-.productImage {
-	display: flex;
-	justify-content: center;
-	height: 100%;
-    width: 100%;
-    flex: 3;
-}
-
-.productImage img {
-	height: 100%;
-}
-
-.productDetails {
-    flex: 2;
+	max-height: 50vh;
+  }
+  
+  .productImage img {
+	width: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+  }
+  
+  .productDetails {
 	margin-left: 1rem;
-}
-
-.productTitle {
+  }
+  
+  .productTitle {
 	font-size: 1.8rem;
 	font-weight: bold;
 	margin-bottom: 1rem;
-}
-
-.productSubtitle {
+  }
+  
+  .productSubtitle {
 	font-size: 1rem;
 	margin-bottom: 1rem;
 	font-family: monospace;
-}
-
-.productPrice {
+  }
+  
+  .productPrice {
 	font-size: 1.25rem;
 	font-weight: bold;
 	margin-bottom: 1rem;
 	font-family: monospace;
-}
-
-.addToCartButton {
+  }
+  
+  .addToCartButton {
 	margin-top: 1rem;
 	font-family: monospace;
-}
-
-.shippingInfo {
+	align-self: flex-end;
+  }
+  
+  .shippingInfo {
 	margin-top: 1rem;
 	font-family: monospace;
-}
-
-.shippingInfoItem {
+	align-self: flex-end;
+  }
+  
+  .shippingInfoItem {
 	margin-bottom: 0.5rem;
 	font-family: monospace;
-	font-size: .8rem;
-}
-
-.sizeSelect {
-    margin-top: 9rem;
-    margin-bottom: 1.4rem;
+	font-size: 0.8rem;
+  }
+  
+  .sizeSelect {
+	margin-top: 1.4rem; /* Adjusted */
+	margin-bottom: 1.4rem;
 	width: 50%;
-}
+	align-self: flex-end;
+  }
+  
