@@ -11,10 +11,16 @@ const Product = ({ url, title, subTitle, price }) => {
 
   return (
     <div className={style.container}>
-      <img className={style.image} src={url} />
-      <div className={style.title}>{title}</div>
-      <div className={style.subTitle}>{subTitle}</div>
-      <div className={style.price}>{formatCurrency(price)}</div>
+      <div className={style.pictureContainer}>
+        <img className={style.image} src={url} />
+      </div>
+      <div className={style.informationContainer}>
+        <div className={style.title}>{title}</div>
+        {
+          //<div className={style.subTitle}>{subTitle}</div>
+        }
+        <div className={style.price}>{formatCurrency(price)}</div>
+      </div>
     </div>
   );
 };

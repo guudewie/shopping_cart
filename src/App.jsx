@@ -11,8 +11,6 @@ function App() {
   const Location = useLocation();
   const { products, loading, error } = useProducts();
 
-  console.log(products);
-
   const noFooterPages = ["/", "/construction"];
   const showFooter = !noFooterPages.includes(Location.pathname);
   const showError = Location.pathname == "*";
@@ -24,7 +22,7 @@ function App() {
   return (
     <>
       <Header toggleDrawer={() => toggleDrawer} />
-      <Outlet />
+      <Outlet context={[products, loading, error]} />
       {showFooter && <Footer />}
       {showError && <Error />}
       <Drawer open={open} toggleDrawer={() => toggleDrawer} />

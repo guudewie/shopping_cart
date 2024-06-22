@@ -6,9 +6,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 const Shop = () => {
   const [orderBy, setOrderBy] = useState("Recommended");
+  const [products, loading, error] = useOutletContext();
 
   const handleChange = (e) => {
     setOrderBy(e.target.value);
@@ -22,7 +24,7 @@ const Shop = () => {
   return (
     <div className={style.mainContainer}>
       <div className={style.shopHeader}>
-        <div className={style.itemCount}>654 Items</div>
+        <div className={style.itemCount}>{products.length} Items</div>
         <Box className={style.sortContainer}>
           <FormControl fullWidth size="small">
             <InputLabel id="orderBySelect" sx={monospaceStyle}>
@@ -51,60 +53,20 @@ const Shop = () => {
         </Box>
       </div>
       <div className={style.itemContainer}>
-        <Product
-          key={1}
-          title={"ralph lauren"}
-          subTitle={"awesome sweater pro mesh"}
-          price={"20"}
-          url={
-            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
-          }
-        ></Product>
-        <Product
-          key={2}
-          title={"ralph lauren"}
-          subTitle={"awesome sweater pro mesh"}
-          price={"20"}
-          url={
-            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
-          }
-        ></Product>
-        <Product
-          key={3}
-          title={"ralph lauren"}
-          subTitle={"awesome sweater pro mesh"}
-          price={"20"}
-          url={
-            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
-          }
-        ></Product>
-        <Product
-          key={4}
-          title={"ralph lauren"}
-          subTitle={"awesome sweater pro mesh"}
-          price={"20"}
-          url={
-            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
-          }
-        ></Product>
-        <Product
-          key={5}
-          title={"ralph lauren"}
-          subTitle={"awesome sweater pro mesh"}
-          price={"20"}
-          url={
-            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
-          }
-        ></Product>
-        <Product
-          key={6}
-          title={"ralph lauren"}
-          subTitle={"awesome sweater pro mesh"}
-          price={"20"}
-          url={
-            "https://www.asphaltgold.com/cdn/shop/files/9ef54fd120c2af23b3127939c0c6a8b558c9e555_710671929001_Polo_Ralph_Lauren_Estate_Rib_Quarter_Zip_Pullover_Polo_Black_os_1_320x320.jpg?v=1718974013"
-          }
-        ></Product>
+        {loading
+          ? "LOADING"
+          : products.length > 0 &&
+            products.map((p) => {
+              return (
+                <Product
+                  key={p.id}
+                  title={p.title}
+                  subTitle={p.description}
+                  price={p.price}
+                  url={p.image}
+                ></Product>
+              );
+            })}
       </div>
     </div>
   );
