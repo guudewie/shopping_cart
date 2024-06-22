@@ -59,7 +59,7 @@ const Checkout = ({ open, toggleDrawer }) => {
               borderRadius: "2rem",
             }}
           >
-            Add to Cart
+            Checkout
           </Button>
         </div>
       </div>

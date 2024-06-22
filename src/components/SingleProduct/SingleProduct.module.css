@@ -2,16 +2,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 3rem 2rem;
 	height: 100%;
+    padding: 3rem 20rem;
 }
 
 .productImage {
-	flex: 2;
 	display: flex;
 	justify-content: center;
 	height: 100%;
     width: 100%;
+    flex: 3;
 }
 
 .productImage img {
@@ -19,7 +19,7 @@
 }
 
 .productDetails {
-	flex: 1;
+    flex: 2;
 	margin-left: 1rem;
 }
 

@@ -1,4 +1,5 @@
 import style from "./LandingPage.module.css";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -8,7 +9,9 @@ const LandingPage = () => {
           <div className={style.title}>Summer Sale</div>
           <div className={style.subTitle}>Shop exclusive styles now</div>
         </div>
-        <div className={style.button}>Shop now</div>
+        <Link to="/shop">
+          <div className={style.button}>Shop now</div>
+        </Link>
       </div>
     </>
   );

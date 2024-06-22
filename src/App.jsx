@@ -1,29 +1,33 @@
-import Footer from "./components/Footer/Footer";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./components/Header/Header";
-import LandingPage from "./components/LandingPage/LandingPage";
-import Error from "./components/Error/Error";
-import Construction from "./components/Error/Construction";
-import Checkout from "./components/Drawer/Checkout";
+import Drawer from "./components/Drawer/Checkout";
+import Footer from "./components/Footer/Footer";
 import { useState } from "react";
-import Shop from "./components/Products/Shop";
-import SingleProduct from "./components/SingleProduct/SingleProduct";
-import PromotionOne from "./components/Promotion/PromotionOne";
+import Error from "./components/Error/Error";
+import useProducts from "./components/useProducts/useProducts";
 
 function App() {
   const [open, setOpen] = useState(false);
+  const Location = useLocation();
+  const { products, loading, error } = useProducts();
+
+  console.log(products);
+
+  const noFooterPages = ["/", "/construction"];
+  const showFooter = !noFooterPages.includes(Location.pathname);
+  const showError = Location.pathname == "*";
 
   const toggleDrawer = () => {
     open ? setOpen(false) : setOpen(true);
   };
+
   return (
     <>
       <Header toggleDrawer={() => toggleDrawer} />
-      {false && <LandingPage></LandingPage>}
-      <Checkout open={open} toggleDrawer={() => toggleDrawer}></Checkout>
-      {true && <Shop></Shop>}
-      {false && <SingleProduct></SingleProduct>}
-      {true && <PromotionOne></PromotionOne>}
-      {true && <Footer></Footer>}
+      <Outlet />
+      {showFooter && <Footer />}
+      {showError && <Error />}
+      <Drawer open={open} toggleDrawer={() => toggleDrawer} />
     </>
   );
 }

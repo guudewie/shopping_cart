@@ -27,3 +27,20 @@
     font-weight: bold;
     font-size: 1.3rem;
 }
+
+a > div:hover,
+.underlined {
+    transition: all .5s ease;
+    position: relative;
+}
+
+a > div:hover::after,
+.underlined::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+}
