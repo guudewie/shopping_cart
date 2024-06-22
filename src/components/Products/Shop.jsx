@@ -6,28 +6,33 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useMemo, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Shop = () => {
   const [orderBy, setOrderBy] = useState("Recommended");
   const [products, loading, error] = useOutletContext();
   const location = useLocation().pathname;
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/product/${id}`);
+  };
 
   const sortedProducts = useMemo(() => {
     const filterProducts = () => {
       switch (location) {
-        case "/mens":
+        case "/shop/mens":
           return products.filter(
             (product) => product.category == "men's clothing"
           );
-        case "/womens":
+        case "/shop/womens":
           return products.filter(
             (product) =>
               product.category == "women's clothing" ||
               product.category == "jewelery"
           );
-        case "/electronics":
+        case "/shop/electronics":
           return products.filter(
             (product) => product.category == "electronics"
           );
@@ -99,6 +104,7 @@ const Shop = () => {
                   subTitle={p.description}
                   price={p.price}
                   url={p.image}
+                  id={p.id}
                 ></Product>
               );
             })}

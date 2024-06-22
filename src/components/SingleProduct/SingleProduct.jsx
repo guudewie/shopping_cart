@@ -7,6 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import useProduct from "../useProducts/useProduct";
 import { useOutletContext, useParams } from "react-router-dom";
+import LoadingSkeleton from "../LoadingSkeleton";
 
 const SingleProduct = () => {
   const [size, setSize] = useState("M");
@@ -103,7 +104,7 @@ const SingleProduct = () => {
           </div>
         </div>
       )}
-      {loading && <div>Loading...</div>}
+      {loading && <LoadingSkeleton></LoadingSkeleton>}
       {error && <div>Error loading product: {error.message}</div>}
     </>
   );
