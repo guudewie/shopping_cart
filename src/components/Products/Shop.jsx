@@ -7,10 +7,35 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Shop = () => {
   const [orderBy, setOrderBy] = useState("Recommended");
   const [products, loading, error] = useOutletContext();
+  const Location = useLocation().pathname;
+
+  if (error) console.log(error);
+
+  console.log(products);
+
+  const filterProducts = () => {
+    if (Location == "/shop/mens") {
+      return products.filter((product) => {
+        return product.category == "men's clothing";
+      });
+    } else if (Location == "/shop/womens") {
+      return products.filter((product) => {
+        return (
+          product.category == "women's clothing" ||
+          product.category == "jewelery"
+        );
+      });
+    } else {
+      return products.filter((product) => {
+        return product.category == "electronics";
+      });
+    }
+  };
 
   const handleChange = (e) => {
     setOrderBy(e.target.value);
@@ -55,8 +80,8 @@ const Shop = () => {
       <div className={style.itemContainer}>
         {loading
           ? "LOADING"
-          : products.length > 0 &&
-            products.map((p) => {
+          : filterProducts().length > 0 &&
+            filterProducts().map((p) => {
               return (
                 <Product
                   key={p.id}
