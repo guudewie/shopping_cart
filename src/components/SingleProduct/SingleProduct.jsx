@@ -21,6 +21,14 @@ const SingleProduct = () => {
     setSize(e.target.value);
   };
 
+  const formatCurrency = (price) => {
+    const formatter = new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+    });
+    return formatter.format(price);
+  };
+
   const handleAddToCart = () => {
     const productToAdd = { ...product, size, amount: 1 };
     const id = productToAdd.id;
@@ -83,7 +91,9 @@ const SingleProduct = () => {
               <strong>{product.title}</strong>
             </div>
             <div className={style.productSubtitle}>{product.description}</div>
-            <div className={style.productPrice}>${product.price}</div>
+            <div className={style.productPrice}>
+              {formatCurrency(product.price)}
+            </div>
             <div className={style.sizeSelect}>
               <FormControl fullWidth size="small">
                 <InputLabel id="orderBySelect" sx={monospaceStyle}>
