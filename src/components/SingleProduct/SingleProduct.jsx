@@ -12,12 +12,40 @@ const SingleProduct = () => {
   const [size, setSize] = useState("M");
   const { id } = useParams();
   const { product, loading, error } = useProduct({ id });
+  const outletContext = useOutletContext();
+  const cart = outletContext[3];
+  const setCart = outletContext[4];
 
   const handleChange = (e) => {
     setSize(e.target.value);
   };
 
-  console.log("ONE :", product);
+  const handleAddToCart = () => {
+    const productToAdd = { ...product, size, amount: 0 };
+    const id = productToAdd.id;
+    let updatedCart = [];
+
+    if (idIsInCart(cart, id)) {
+      updatedCart = addOneToItem(cart, id);
+    } else {
+      updatedCart = [...cart, productToAdd];
+    }
+
+    setCart(updatedCart);
+  };
+
+  const idIsInCart = (cart, id) => {
+    return cart.some((item) => item.id === id);
+  };
+
+  const addOneToItem = (cart, id) => {
+    return cart.map((i) => {
+      if (i.id == id) {
+        return { ...i, amount: i.amount + 1 };
+      }
+      return i;
+    });
+  };
 
   const monospaceStyle = {
     fontFamily: "monospace",
@@ -85,6 +113,7 @@ const SingleProduct = () => {
                 fontFamily: "monospace",
                 fontSize: "1rem",
               }}
+              onClick={handleAddToCart}
             >
               Add to Cart
             </Button>

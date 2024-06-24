@@ -18,8 +18,8 @@ const CheckoutItem = ({ price, itemCount, url, title }) => {
           </div>
         </div>
         <div className={style.price}>{price}</div>
+        <hr className={style.divider}></hr>
       </div>
-      <hr className={style.divider}></hr>
     </>
   );
 };

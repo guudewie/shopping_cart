@@ -8,6 +8,7 @@ import useProducts from "./components/useProducts/useProducts";
 
 function App() {
   const [open, setOpen] = useState(false);
+  const [cart, setCart] = useState([]);
   const Location = useLocation();
   const { products, loading, error } = useProducts();
 
@@ -16,16 +17,16 @@ function App() {
   const showError = Location.pathname == "*";
 
   const toggleDrawer = () => {
-    open ? setOpen(false) : setOpen(true);
+    setOpen(!open);
   };
 
   return (
     <>
       <Header toggleDrawer={() => toggleDrawer} />
-      <Outlet context={[products, loading, error]} />
+      <Outlet context={[products, loading, error, cart, setCart]} />
       {showFooter && <Footer />}
       {showError && <Error />}
-      <Drawer open={open} toggleDrawer={() => toggleDrawer} />
+      <Drawer open={open} toggleDrawer={() => toggleDrawer} cartItems={cart} />
     </>
   );
 }

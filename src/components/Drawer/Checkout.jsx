@@ -4,7 +4,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import CheckoutItem from "./CheckoutItem";
 import { Button } from "@mui/material";
 
-const Checkout = ({ open, toggleDrawer }) => {
+const Checkout = ({ open, toggleDrawer, cartItems }) => {
+  const formatCurrency = (price) => {
+    const formatter = new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+    });
+    return formatter.format(price);
+  };
   return (
     <Drawer open={open} anchor="right">
       <div className={style.main}>
@@ -13,28 +20,26 @@ const Checkout = ({ open, toggleDrawer }) => {
             className={style.close}
             onClick={toggleDrawer()}
           ></CloseIcon>
-          <div className={style.title}>Your Bag (5)</div>
+          <div className={style.title}>Your Bag ({cartItems.length})</div>
           <hr className={style.divider}></hr>
         </div>
         <div className={style.products}>
-          <CheckoutItem
-            price={20}
-            itemCount={8}
-            url={""}
-            title={"Best Watch Ever"}
-          ></CheckoutItem>
-          <CheckoutItem
-            price={20}
-            itemCount={8}
-            url={""}
-            title={"Best Watch Ever"}
-          ></CheckoutItem>
-          <CheckoutItem
-            price={20}
-            itemCount={8}
-            url={""}
-            title={"Best Watch Ever"}
-          ></CheckoutItem>
+          {cartItems.length > 0 &&
+            cartItems.map((item) => {
+              return (
+                <CheckoutItem
+                  key={item.id}
+                  price={formatCurrency(item.price)}
+                  itemCount={item.amount}
+                  url={item.image}
+                  title={
+                    item.title.length > 40
+                      ? item.title.slice(0, 40) + "..."
+                      : item.title
+                  }
+                ></CheckoutItem>
+              );
+            })}
         </div>
         <div className={style.checkout}>
           <div className={style.checkoutTop}>

@@ -1,23 +1,28 @@
 .mainContainer {
+    display: grid;
+    grid-template-columns:  10fr 1fr;
+    grid-template-rows: 3fr ;
     width: 100%;
-    display: flex;
     gap: 1rem;
-    justify-content: space-between;
-    height: 4rem;
-}
-
-.left {
-    height: 100%;
 }
 
 .picture {
+    height: 4rem;
     width: 4rem;
-    height: 100%;
+    object-fit: contain;
 }
 
 .title {
     font-family: monospace;
     font-size: .8rem;
+    padding-bottom: 1rem;
+}
+
+.left {
+    grid-column-start: 0;
+    grid-column-end: 1;
+    grid-row-start: 0;
+    grid-row-end: 1;
 }
 
 .right {
@@ -37,8 +42,7 @@
     padding: .2rem .9rem;
     font-size: 1rem;
     font-family: monospace;
-    height: 1.5rem;
-    width: 4rem;
+    width: 55%;
     border-radius: 1rem;
     border: 1.5px solid blue;
     text-align: center;
@@ -47,15 +51,15 @@
 
 .price {
     align-self: flex-end;
-    justify-self: flex-end;
     font-family: monospace;
     font-weight: bold;
     font-size: 1rem;
-    margin-right: 1rem;
-    margin-bottom: .25rem;
+    width: 5rem;
 }
 
 .divider {
     width: 90%;
     opacity: .2;
+    grid-column-start: -4;
+    grid-column-end: 3;
 }
