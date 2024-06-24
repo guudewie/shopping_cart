@@ -47,8 +47,8 @@ const PromotionTwo = () => {
           {products &&
             products.map((p) => (
               <>
-                <SwiperSlide className={style.slide}>
-                  <div className={style.productCon}>
+                <SwiperSlide className={style.slide} key={p.id}>
+                  <div className={style.productCon} key={p.id}>
                     <Product
                       key={p.id}
                       title={p.title.slice(0, 20) + "..."}

@@ -21,7 +21,7 @@ const SingleProduct = () => {
   };
 
   const handleAddToCart = () => {
-    const productToAdd = { ...product, size, amount: 0 };
+    const productToAdd = { ...product, size, amount: 1 };
     const id = productToAdd.id;
     let updatedCart = [];
 

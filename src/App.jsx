@@ -20,13 +20,41 @@ function App() {
     setOpen(!open);
   };
 
+  const addOneToItem = (id) => {
+    const updatedCart = cart.map((i) => {
+      if (i.id == id) {
+        return { ...i, amount: i.amount + 1 };
+      }
+      return i;
+    });
+    setCart(updatedCart);
+  };
+
+  const subOneFromItem = (id) => {
+    const updatedCart = cart
+      .map((i) => {
+        if (i.id == id) {
+          return i.amount - 1 >= 1 ? { ...i, amount: i.amount - 1 } : null;
+        }
+        return i;
+      })
+      .filter((i) => i !== null);
+    setCart(updatedCart);
+  };
+
   return (
     <>
       <Header toggleDrawer={() => toggleDrawer} />
       <Outlet context={[products, loading, error, cart, setCart]} />
       {showFooter && <Footer />}
       {showError && <Error />}
-      <Drawer open={open} toggleDrawer={() => toggleDrawer} cartItems={cart} />
+      <Drawer
+        open={open}
+        toggleDrawer={() => toggleDrawer}
+        addOne={(id) => addOneToItem(id)}
+        subOne={(id) => subOneFromItem(id)}
+        cartItems={cart}
+      />
     </>
   );
 }

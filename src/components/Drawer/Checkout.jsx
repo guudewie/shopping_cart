@@ -4,13 +4,19 @@ import CloseIcon from "@mui/icons-material/Close";
 import CheckoutItem from "./CheckoutItem";
 import { Button } from "@mui/material";
 
-const Checkout = ({ open, toggleDrawer, cartItems }) => {
+const Checkout = ({ open, toggleDrawer, cartItems, addOne, subOne }) => {
   const formatCurrency = (price) => {
     const formatter = new Intl.NumberFormat("de-DE", {
       style: "currency",
       currency: "EUR",
     });
     return formatter.format(price);
+  };
+
+  const getTotalPrice = (items) => {
+    let totalPrice = 0;
+    items.forEach((item) => (totalPrice += item.price * item.amount));
+    return totalPrice;
   };
   return (
     <Drawer open={open} anchor="right">
@@ -37,6 +43,8 @@ const Checkout = ({ open, toggleDrawer, cartItems }) => {
                       ? item.title.slice(0, 40) + "..."
                       : item.title
                   }
+                  addOne={() => addOne(item.id)}
+                  subOne={() => subOne(item.id)}
                 ></CheckoutItem>
               );
             })}
@@ -45,7 +53,7 @@ const Checkout = ({ open, toggleDrawer, cartItems }) => {
           <div className={style.checkoutTop}>
             <div className={style.containerBold}>
               <div>SUBTOTAL</div>
-              <div>PRICE</div>
+              <div>{formatCurrency(getTotalPrice(cartItems))}</div>
             </div>
             <div className={style.containerLight}>
               <div>Shipping</div>
