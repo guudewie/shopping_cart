@@ -7,6 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import useProduct from "../useProducts/useProduct";
 import { useOutletContext, useParams } from "react-router-dom";
+import Skeleton from "@mui/material/Skeleton";
 
 const SingleProduct = () => {
   const [size, setSize] = useState("M");
@@ -54,7 +55,25 @@ const SingleProduct = () => {
 
   return (
     <>
-      {product && (
+      {loading && (
+        <div className={style.productPage}>
+          <div className={style.productImage}>
+            <Skeleton variant="rectangular" width="100%" height={400} />
+          </div>
+          <div className={style.productDetailsSkeleton}>
+            <Skeleton variant="text" width="60%" height={60} />
+            <Skeleton variant="text" width="80%" height={40} />
+            <Skeleton variant="text" width="40%" height={40} />
+            <Skeleton variant="rectangular" width="100%" height={56} />
+            <Skeleton variant="rectangular" width="100%" height={56} />
+            <Skeleton variant="text" width="100%" height={25} />
+            <Skeleton variant="text" width="100%" height={25} />
+            <Skeleton variant="text" width="100%" height={25} />
+            <Skeleton variant="text" width="100%" height={25} />
+          </div>
+        </div>
+      )}
+      {!loading && product && (
         <div className={style.productPage}>
           <div className={style.productImage}>
             <img src={product.image} alt={product.title} />
@@ -132,7 +151,6 @@ const SingleProduct = () => {
           </div>
         </div>
       )}
-      {loading && <div>Loading...</div>}
       {error && <div>Error loading product: {error.message}</div>}
     </>
   );

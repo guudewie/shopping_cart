@@ -31,6 +31,13 @@
   .productDetails {
 	margin-left: 1rem;
   }
+
+  .productDetailsSkeleton {
+	margin-left: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  }
   
   .productTitle {
 	font-size: 1.8rem;

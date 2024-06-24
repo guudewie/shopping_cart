@@ -37,16 +37,18 @@ function Header({ toggleDrawer, items }) {
           )}
         </Link>
       </nav>
-      <div className={style.iconsContainer} onClick={toggleDrawer()}>
+      <div className={style.iconsContainer}>
         <Badge
           classes={{ badge: style.badge }}
           badgeContent={items}
           color="primary"
           max={99}
         >
-          <ShoppingCartOutlinedIcon />
+          <ShoppingCartOutlinedIcon onClick={toggleDrawer()} />
         </Badge>
-        <PersonIcon></PersonIcon>
+        <Link to="/construction">
+          <PersonIcon></PersonIcon>
+        </Link>
       </div>
     </div>
   );

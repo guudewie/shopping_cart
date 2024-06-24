@@ -30,7 +30,7 @@ const Checkout = ({ open, toggleDrawer, cartItems, addOne, subOne }) => {
           <hr className={style.divider}></hr>
         </div>
         <div className={style.products}>
-          {cartItems.length > 0 &&
+          {cartItems.length > 0 ? (
             cartItems.map((item) => {
               return (
                 <CheckoutItem
@@ -47,7 +47,13 @@ const Checkout = ({ open, toggleDrawer, cartItems, addOne, subOne }) => {
                   subOne={() => subOne(item.id)}
                 ></CheckoutItem>
               );
-            })}
+            })
+          ) : (
+            <div className={style.emptyCart}>
+              It seems like your <b>cart is empty</b>. <br />
+              Consider checking our special Deals.
+            </div>
+          )}
         </div>
         <div className={style.checkout}>
           <div className={style.checkoutTop}>
