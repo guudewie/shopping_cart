@@ -44,7 +44,7 @@
     font-family: monospace;
     width: 55%;
     border-radius: 1rem;
-    border: 1.5px solid blue;
+    border: 1.5px solid rgb(56, 116, 203);
     text-align: center;
     margin-left: .2rem;
 }
