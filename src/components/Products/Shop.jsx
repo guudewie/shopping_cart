@@ -8,6 +8,7 @@ import Select from "@mui/material/Select";
 import { useMemo, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { Skeleton } from "@mui/material";
 
 const Shop = () => {
   const [orderBy, setOrderBy] = useState("Recommended");
@@ -94,7 +95,16 @@ const Shop = () => {
       </div>
       <div className={style.itemContainer}>
         {loading
-          ? "LOADING"
+          ? Array.from({ length: 15 }).map((_, i) => {
+              return (
+                <div key={i} className={style.skeletonItem}>
+                  <Skeleton variant="rectangular" width="100%" height={200} />
+                  <Skeleton variant="text" width="60%" height={20} />
+                  <Skeleton variant="text" width="80%" height={20} />
+                  <Skeleton variant="text" width="40%" height={20} />
+                </div>
+              );
+            })
           : sortedProducts.length > 0 &&
             sortedProducts.map((p) => {
               return (

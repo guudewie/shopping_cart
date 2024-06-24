@@ -13,18 +13,24 @@
 }
 
 .sortContainer {
-    width: 8rem;
-    font-family: monospace;
+  width: 8rem;
+  font-family: monospace;
 }
 
 .itemContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    gap: 2rem;
-    width: 100%;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
 
 .monospaceStyle {
-    font-family: monospace;
-    font-size: 0.8rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.skeletonItem {
+  display: flex;
+  flex-direction: column;
+  
 }
