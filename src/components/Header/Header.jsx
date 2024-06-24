@@ -5,7 +5,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-function Header({ toggleDrawer }) {
+function Header({ toggleDrawer, items }) {
   const Location = useLocation();
   const currPage = Location.pathname;
 
@@ -40,7 +40,7 @@ function Header({ toggleDrawer }) {
       <div className={style.iconsContainer} onClick={toggleDrawer()}>
         <Badge
           classes={{ badge: style.badge }}
-          badgeContent={"5"}
+          badgeContent={items}
           color="primary"
           max={99}
         >

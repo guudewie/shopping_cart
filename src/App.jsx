@@ -44,7 +44,7 @@ function App() {
 
   return (
     <>
-      <Header toggleDrawer={() => toggleDrawer} />
+      <Header toggleDrawer={() => toggleDrawer} items={cart.length} />
       <Outlet context={[products, loading, error, cart, setCart]} />
       {showFooter && <Footer />}
       {showError && <Error />}
