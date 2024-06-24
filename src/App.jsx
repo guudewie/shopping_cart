@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 import Error from "./components/Error/Error";
 import useProducts from "./components/useProducts/useProducts";
+import ScrollToTop from "./components/scrollToTop";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -55,6 +56,7 @@ function App() {
         subOne={(id) => subOneFromItem(id)}
         cartItems={cart}
       />
+      <ScrollToTop />
     </>
   );
 }
