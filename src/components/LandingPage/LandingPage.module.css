@@ -6,7 +6,7 @@
 
     height: calc(100vh - 5rem);
     width: 100vw;
-    background-image: url("../../assets/homeBackground.jpg");
+    background-image: url("../../../assets/homeBackground.jpg");
     background-size: cover;
     background-position: center;
     gap: 2rem;

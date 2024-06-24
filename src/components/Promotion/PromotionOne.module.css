@@ -9,7 +9,7 @@
 }
 
 .left {
-    background-image: url("../../assets/store.jpg");
+    background-image: url("../../../assets/store.jpg");
     background-size: cover;
     background-position: center;
     height: 100%;
